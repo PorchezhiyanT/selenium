@@ -1,0 +1,30 @@
+package Assighnment;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import dev.failsafe.internal.util.Assert;
+
+public class Assert_verify {
+
+	public static void main(String[] args) {
+		
+        
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
+       
+        
+        driver.get("https://www.google.com/");
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("chezhiyan");
+        searchBox.submit();
+        String title = driver.getTitle();
+    //    Assert.assertTrue(title.contains("chezhiyan"));
+        driver.quit();
+	}
+
+	
+}
